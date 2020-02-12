@@ -21,6 +21,7 @@ namespace FizzBuzz_Epinova
             this.iterations = iterations; 
         }
 
+        /* Runs the game with given rules, direction and iterations */
         public void Run()
         {           
             if (isRising)
