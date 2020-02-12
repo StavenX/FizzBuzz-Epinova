@@ -10,34 +10,41 @@ namespace FizzBuzz_Epinova
      */
     class MathGame
     {
-        private Rules rules;        // The ruleset for this game
-        private bool isRising;      // Counting upwards or downwards
-        private int iterations;     // Amount of iterations 
-
-        public MathGame(Rules ruleList, int iterations, bool isRising)
+        /* Runs the game with given rules, start-value, end-value and incrementation amount */
+        public static void Run(Rules ruleList, int start, int end, int incrementAmount)
         {
-            this.rules = ruleList;
-            this.isRising = isRising;
-            this.iterations = iterations; 
-        }
+            /* Do not let the user use 0 as 'incrementAmount' */
+            if (incrementAmount == 0)
+            {
+                throw new Exception("The incrementing-value can not be 0.");
+            }       
 
-        /* Runs the game with given rules, direction and iterations */
-        public void Run()
-        {           
+            /* Decides which direction the loop goes */
+            bool isRising = incrementAmount >= 0;
+
+            /* Figure out the correct order of 'start' and 'end' */
+            int highestNumber = Math.Max(start, end);
+            int lowestNumber = Math.Min(start, end);
+
+            /* Make sure start & end are placed accordingly to the direction*/
             if (isRising)
             {
-                for (int i = 1; i <= this.iterations; i++)
-                {
-                    Console.WriteLine(rules.GetNumberAsWholeKeyword(i));
-                }
-            }
-            else
+                start = lowestNumber;
+                end = highestNumber;
+            } else
             {
-                for (int i = this.iterations; i >= 1; i--)
-                {
-                    Console.WriteLine(rules.GetNumberAsWholeKeyword(i));
-                }
+                start = highestNumber;
+                end = lowestNumber;
             }
+
+            /* Increments 'i' with 'incrementValue' until 'i' have not met 'end' yet */
+            int i = start; 
+            while (isRising ? i <= end : i >= end)
+            {
+                Console.WriteLine(ruleList.GetNumberAsWholeKeyword(i));
+                i += incrementAmount;
+            }
+
         }
 
     }

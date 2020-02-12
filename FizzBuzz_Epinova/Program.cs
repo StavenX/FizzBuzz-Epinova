@@ -7,30 +7,23 @@ namespace FizzBuzz_Epinova
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Edvin's (new & better) FizzBuzz / JazzFuzz implementation!\n");
+            Console.WriteLine("Edvin's (newest & better) FizzBuzz / JazzFuzz implementation!\n");
 
             Rules fbRules = new Rules();
-            Rules jfRules = new Rules();
-
             fbRules.AddRule(3, "Fizz");
             fbRules.AddRule(5, "Buzz");
 
-            jfRules.AddRule(4, "Fuzz");
+            Rules jfRules = new Rules();
             jfRules.AddRule(9, "Jazz");
+            jfRules.AddRule(4, "Fuzz");
 
             /* Del 1 */
-            MathGame fizzBuzz = new MathGame(fbRules, 100, true);
-            fizzBuzz.Run();
-
+            MathGame.Run(fbRules, 1, 100, 1);            
             Console.WriteLine();
 
             /* Del 2 */
-            fizzBuzz.Run();
-
-            MathGame jazzFuzz = new MathGame(jfRules, 100, false);
-            jazzFuzz.Run();
-
+            MathGame.Run(fbRules, 1, 100, 1);
+            MathGame.Run(jfRules, 100, 1, -1);
         }
-
     }
 }
