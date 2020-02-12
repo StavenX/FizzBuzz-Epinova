@@ -9,13 +9,17 @@ namespace FizzBuzz_Epinova
         {
             Console.WriteLine("Edvin's (new & better) FizzBuzz / JazzFuzz implementation!\n");
 
-            Rules gameRules = new Rules();
+            Rules fbRules = new Rules();
+            Rules jfRules = new Rules();
+
+            fbRules.AddRule(3, "Fizz");
+            fbRules.AddRule(5, "Buzz");
+
+            jfRules.AddRule(4, "Fuzz");
+            jfRules.AddRule(9, "Jazz");
 
             /* Del 1 */
-            gameRules.AddRule(3, "Fizz");
-            gameRules.AddRule(5, "Buzz");
-
-            MathGame fizzBuzz = new MathGame(gameRules, 100, true);
+            MathGame fizzBuzz = new MathGame(fbRules, 100, true);
             fizzBuzz.Run();
 
             Console.WriteLine();
@@ -23,13 +27,7 @@ namespace FizzBuzz_Epinova
             /* Del 2 */
             fizzBuzz.Run();
 
-            gameRules.RemoveRule(3);
-            gameRules.RemoveRule(5);
-
-            gameRules.AddRule(4, "Fuzz");
-            gameRules.AddRule(9, "Jazz");
-
-            MathGame jazzFuzz = new MathGame(gameRules, 100, false);
+            MathGame jazzFuzz = new MathGame(jfRules, 100, false);
             jazzFuzz.Run();
 
         }
