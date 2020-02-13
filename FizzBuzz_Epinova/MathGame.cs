@@ -26,7 +26,7 @@ namespace FizzBuzz_Epinova
             int highestNumber = Math.Max(start, end);
             int lowestNumber = Math.Min(start, end);
 
-            /* Make sure start & end are placed accordingly to the direction*/
+            /* Make sure start & end are placed accordingly to the direction */
             if (isRising)
             {
                 start = lowestNumber;
